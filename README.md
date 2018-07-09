@@ -6,6 +6,7 @@ TODO: Write a project description
 
 TODO: Describe the installation process
 `docker build -t godis .`
+`docker build github.com/ekundo/godis`
 
 ## Usage
 
