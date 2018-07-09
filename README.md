@@ -26,7 +26,7 @@ Godis is simple implementation of Redis-like in-memory cache written in Go.
 
   The commands have the same signature and work exactly the same as corresponding commands in Redis bellow version 2.4 
   (Godis does not support multikey and multivalue commands).
-* Both REdis Serialization Protocol (RESP) and Inline commands protocol are supported. 
+* Both [REdis Serialization Protocol (RESP)](https://redis.io/topics/protocol) and [Inline Commands Protocol](https://redis.io/topics/protocol#inline-commands) are supported. 
 Thus simple `telnet` and `redis-cli` clients can be used to play with Godis. 
 Moreover, performance can be tested with `redis-benchmark`. 
 * Golang API client
