@@ -5,12 +5,12 @@ TODO: Write a project description
 ## Installation
 
 TODO: Describe the installation process
-docker build -t godis .
+`docker build -t godis .`
 
 ## Usage
 
 TODO: Write usage instructions
-docker run -v $(pwd):/work -p 2121:2121 -it --rm godis
+`docker run -v $(pwd):/work -p 2121:2121 -it --rm godis`
 
 ## Contributing
 
