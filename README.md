@@ -24,7 +24,7 @@ Godis is simple implementation of Redis-like in-memory cache written in Go.
   |[pttl](https://redis.io/commands/pttl)| | |
   |[persist](https://redis.io/commands/persist)| | |
 
-  The commands have the same signature and work exactly the same as corresponding commands in Redis bellow version 2.4 
+  The commands have the same signature and work exactly the same as corresponding commands in Redis below version 2.4 
   (Godis does not support multikey and multivalue commands).
 * Both [REdis Serialization Protocol (RESP)](https://redis.io/topics/protocol) and [Inline Commands Protocol](https://redis.io/topics/protocol#inline-commands) are supported. 
 Thus simple `telnet` and `redis-cli` clients can be used to play with Godis. 
@@ -62,4 +62,30 @@ redis> get foo
 "bar"
 ```
 Use `command` to get the list of available commands. 
-Details of each command from the list can be found at [redis command guide](http://redis.io/commands).  
+Details of each command from the list can be found at [redis command guide](http://redis.io/commands).
+
+## Performance testing results
+
+Below are the testing results performed on my MacBook Pro 13 (Intel Core i5 2.9 GHz, 8 GB LPDDR3, SSD)
+```
+$ redis-benchmark -p 2121 -r 65536 -q -t SET,GET,LPUSH,RPUSH,LPOP,RPOP,HSET
+SET: 21640.34 requests per second
+GET: 26116.48 requests per second
+LPUSH: 23342.67 requests per second
+RPUSH: 22925.26 requests per second
+LPOP: 24313.15 requests per second
+RPOP: 25227.04 requests per second
+HSET: 19105.85 requests per second
+```  
+
+Test result are compared with such of original Redis server:
+```
+redis-benchmark -r 65536 -q -t SET,GET,LPUSH,RPUSH,LPOP,RPOP,HSET
+SET: 50994.39 requests per second
+GET: 51072.52 requests per second
+LPUSH: 52938.06 requests per second
+RPUSH: 52328.62 requests per second
+LPOP: 52548.61 requests per second
+RPOP: 51867.22 requests per second
+HSET: 51519.84 requests per second
+```
