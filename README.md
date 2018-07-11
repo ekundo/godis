@@ -37,7 +37,7 @@ Log compaction is not yet implemented and format of the log is not optimized due
 ## Installation
 
 To build Godis as a Docker image install and run [Docker](https://docs.docker.com/engine/installation/) and use the following command:  
-```docker build github.com/ekundo/godis```
+```docker build -t godis github.com/ekundo/godis```
 
 ## Playing with Godis
 
